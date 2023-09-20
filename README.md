@@ -1,4 +1,4 @@
-# 'Adventures in Writing' (Ruby on Rails Blog App)
+# Ruby on Rails Blog App
 
 ## 📗 Table of Contents
 
@@ -53,13 +53,13 @@ To begin using the Blog App, please follow the instructions below:
 1. Clone the project repository:
 
    ```bash
-   git clone https://github.com/grauJavier/blog-app.git
+   git clone https://github.com/grauJavier/blog-app-ruby.git
     ```
 
 2. Navigate to the project folder:
 
     ```bash
-    cd blog-app
+    cd blog-app-ruby
     ```
 
 ### System Requirements <a name="prerequisites"></a>
@@ -110,10 +110,10 @@ Follow these steps to utilize the Blog App:
 ## 🤝 Contribution <a name="contributing"></a>
 
 Contributions, issues, and feature requests are highly encouraged! 
-Feel free to explore the issues [page](https://github.com/grauJavier/blog-app/issues) and contribute to the project.
+Feel free to explore the issues [page](https://github.com/grauJavier/blog-app-ruby/issues) and contribute to the project.
 
 ## ⭐️ Support <a name="support"></a>
 If you find this project useful, please consider giving it a ⭐️ to show your support!
 
 ## 📜 License <a name="license"></a>
-This project is licensed under the [MIT License](https://github.com/grauJavier/blog-app/blob/dev/MIT.md).
+This project is licensed under the [MIT License](https://github.com/grauJavier/blog-app-ruby/blob/dev/MIT.md).
