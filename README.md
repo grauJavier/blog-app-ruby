@@ -116,4 +116,4 @@ Feel free to explore the issues [page](https://github.com/grauJavier/blog-app-ru
 If you find this project useful, please consider giving it a ⭐️ to show your support!
 
 ## 📜 License <a name="license"></a>
-This project is licensed under the [MIT License](https://github.com/grauJavier/blog-app-ruby/blob/setup-database-schema/MIT.md).
+This project is licensed under the [MIT License](https://github.com/grauJavier/blog-app-ruby/blob/dev/MIT.md).
