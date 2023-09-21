@@ -15,13 +15,12 @@ RSpec.describe Like, type: :model do
 
   context 'update_likes_counter' do
     it 'updates the likes_counter for the associated post' do
-      user = User.create(name: 'Bob')
-      post = Post.create(title: 'Another Post', author: user)
-      like = Like.create(user: user, post: post)
+      user = User.create(name: 'José')
+      post = Post.create(title: 'Another Post', text: 'Some text', author: user)
 
       expect(post.likes_counter).to eq(0)
 
-      like.save
+      Like.create(user:, post:)
 
       post.reload
       expect(post.likes_counter).to eq(1)
