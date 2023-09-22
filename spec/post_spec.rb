@@ -33,4 +33,34 @@ RSpec.describe Post, type: :model do
       expect(post).to be_valid
     end
   end
+
+  context 'recent_comments' do
+    it 'returns the most recent comments, limited to 5' do
+      user = User.create(name: 'John')
+      post = Post.create(author: user, title: 'My Post', text: 'Some text')
+
+      newest_comment = post.comments.create(user:, text: 'This is the newest comment', created_at: Time.now)
+      middle_comment1 = post.comments.create(user:, text: 'This is a middle comment 1', created_at: 1.day.ago)
+      middle_comment2 = post.comments.create(user:, text: 'This is a middle comment 2', created_at: 2.days.ago)
+      middle_comment3 = post.comments.create(user:, text: 'This is a middle comment 3', created_at: 3.days.ago)
+      older_comment = post.comments.create(user:, text: 'This is an older comment', created_at: 4.days.ago)
+
+      post.comments.create(user:, text: 'This is an extra comment', created_at: 6.days.ago)
+
+      recent_comments = post.recent_comments
+
+      expect(recent_comments).to eq([newest_comment, middle_comment1, middle_comment2, middle_comment3, older_comment])
+    end
+  end
+
+  context 'private methods' do
+    it 'updates the author\'s posts_counter' do
+      user = User.create(name: 'testuser')
+      post = Post.new(author: user, title: 'My Post', text: 'Some text')
+      post.save
+
+      user.reload
+      expect(user.posts_counter).to eq(1)
+    end
+  end
 end
