@@ -71,5 +71,6 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'bootstrap-sass'
 gem 'rails-controller-testing'
 gem 'rubocop'
