@@ -16,3 +16,11 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  overflow-y: scroll;
+}
+
+a:hover {
+    text-decoration: underline !important;
+  }
