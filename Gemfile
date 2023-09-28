@@ -50,7 +50,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  # gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
 end
 
@@ -71,5 +71,8 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'jquery-rails'
 gem 'rails-controller-testing'
 gem 'rubocop'
+gem 'sassc-rails', '>= 2.1.0'

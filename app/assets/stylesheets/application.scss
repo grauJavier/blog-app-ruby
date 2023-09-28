@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  overflow-y: scroll;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+.comment-profile-picture {
+  width: 35px;
+  height: 35px;
+}

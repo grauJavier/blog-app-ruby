@@ -1,16 +1,30 @@
-<h2>User name</h2>
-<span>Number of posts:</span>
-<h3>Post #1 by Username</h3>
-<p>Lorem ipsum dolor sit amet. At nisi fugiat rem quibusdam explicabo ut reprehenderit odio ea rerum dolorem ut eligendi enim. Et magni adipisci non quia illum ea veritatis aliquid.
+<div class="d-flex flex-column align-items-center gap-4 my-5">
+    <div class="container d-flex w-75 p-0">
+        <a href="<%= user_path(@user) %>"><img class="rounded-circle bg-white p-2 border me-4" src="<%= @user.photo %>" alt="User Photo"></a>
+        <div class="border rounded-5 w-100 bg-white p-4 d-flex flex-column justify-content-between">
+            <div class="m-0">
+                <h2 class="fs-2">
+                    <%= @post.title %>
+                    <%= link_to @user.name, user_path(@user), class: "text-decoration-none text-decoration-underline-hover"  %>
+                    </h2>
+                <span class="text-secondary">Post no. <%= @post.id %></span>
+                <p class="fs-3 my-3"><%= @post.text %></p>
+            </div>
+            <%= link_to "Back to Home", root_path, title:"To Home Page", class: "text-decoration-none fs-4 text-decoration-underline-hover text-primary align-self-end" %>
+        </div>
+    </div>
 
-Ad reiciendis porro eos consectetur odio non fugit quas sed reiciendis dolores. Ab voluptate amet est exercitationem eveniet et sint atque et iure quisquam non minima suscipit! Et voluptatem quia ut velit dolorum aut dolorem nihil et dicta vero id consequatur reprehenderit est nobis galisum id rerum voluptate.
+    <h3 class="text-center m-0">Comments</h3>
+    <div class="d-flex flex-column gap-3 w-75 bg-white p-4 border rounded-5">
+        <% @post.comments.each do |comment| %>
+            <div class="d-flex flex-column">
+                <h4 class="mb-0">
+                    <img class="rounded-circle bg-white p-1 border m-0 comment-profile-picture" src="<%= comment.user.photo %>" alt="User Photo">
+                    <%= link_to comment.user.name, user_path(comment.user), class: "text-decoration-none text-decoration-underline-hover" %></h4>
+                <p class="fs-4 ms-5"><%= comment.text %></p>
+            </div>
+        <% end %>
+    </div>
 
-Sed reprehenderit aliquam et pariatur commodi et perferendis fugiat qui nemo minus ut similique quisquam. Nam excepturi consequatur est iste dolore et sequi eaque et ipsam quam sed dolorum suscipit in nisi nemo sit rerum voluptas. Non porro natus ea quos quas qui odit enim sit praesentium excepturi sit dolores mollitia. Eum quae voluptatem et cumque quis sit consequatur dolores aut rerum eius ut magnam velit aut animi dolores!</p>
-<h4>User comment: 1</h4>
-<h4>User comment: 2</h4>
-<h4>User comment: 3</h4>
-<h4>User comment: 4</h4>
-<h4>User comment: 5</h4>
-<h4>User comment: 6</h4>
-<h4>User comment: 7</h4>
-<h4>User comment: 8</h4>
+    <%= link_to "Back to all posts", user_path(@user)+"/posts", class: "btn btn-primary fs-3 px-3 py-2 rounded-pill" %>
+</div>
