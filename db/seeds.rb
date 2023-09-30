@@ -16,7 +16,7 @@ User.create(name: 'Sophia Lee', photo: "https://i.pravatar.cc/150?img=#{numbers.
 User.all.each do |user|
     (rand(0..5)*2).times do |i|
       Post.create(
-        title: "Post #{i + 1} by ",
+        title: "Post #{i + 1}",
         text: "This is the content of Post #{i + 1} created by #{user.name}.",
         author: user
       )

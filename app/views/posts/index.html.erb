@@ -1,52 +1,61 @@
 <div class="d-flex flex-column align-items-center gap-4 my-5">
     <div class="container d-flex w-75 p-0">
-        <a href="<%= user_path(@user) %>"><img class="rounded-circle bg-white p-2 border me-4" src="<%= @user.photo %>" alt="User Photo"></a>
+        <a href="<%= user_path(@user) %>">
+            <img class="rounded-circle bg-white p-2 border me-4" src="<%= @user.photo %>" alt="User Photo">
+        </a>
         <div class="border rounded-5 w-100 bg-white p-4 d-flex flex-column justify-content-between">
             <div class="w-25 m-0">
-                <h2 class="text-decoration-none fs-2 text-decoration-underline-hover text-primary"><%= link_to @user.name, user_path(@user), class: "text-decoration-none" %></h2>
+                <h2 class="text-decoration-none fs-2 text-decoration-underline-hover text-primary">
+                    <%= link_to @user.name, user_path(@user), class: "text-decoration-none" %>
+                </h2>
                 <p class="user-posts text-end me-5 fs-5">Number of posts: <%= @user.posts_counter %></p>
             </div>
-            <%= link_to "Back to Home", root_path, title:"To Home Page", class: "text-decoration-none fs-4 text-decoration-underline-hover text-primary align-self-end" %>
+            <div class="align-self-end d-flex align-items-center gap-3">
+                <% if @current_user == @user %>
+                    <%= link_to "Create New Post", new_user_post_path(@user), class: "btn btn-primary fs-3 px-4 py-2 rounded-pill" %>
+                <% end %>
+                <%= link_to "Back to Home", root_path, title:"To Home Page", class: "text-decoration-none fs-4 text-decoration-underline-hover text-primary" %>
+            </div>
         </div>
     </div>
 
     <div class="d-flex flex-column align-items-center gap-4 w-75">
         <div class="d-flex flex-column align-items-center gap-4 w-100">
-        
-            <% @posts.each do |post| %> 
-                <div class="border rounded-5 w-100 bg-white p-4">
-                    <h3 class="mb-0">
-                            <% if post.comments.count > 0 %>
-                                <%= link_to post.title + @user.name,  user_post_path(user_id: @user.id, id: post.id), class: "text-decoration-none text-decoration-underline-hover" %>
-                            <% else%>
-                                <%= post.title + @user.name %>
-                            <% end %>
+            <% if @posts.count == 0 %>
+                <h3 class="text-center">No posts yet</h3>
+            <% else %>
+                <% @posts.each do |post| %> 
+                    <div class="border rounded-5 w-100 bg-white p-4">
+                        <h3 class="mb-0">
+                           <%= link_to post.title + " by " + @user.name,  user_post_path(user_id: @user.id, id: post.id), class: "text-decoration-none text-decoration-underline-hover" %>
                         </h3>
-                    <span class="text-secondary">
-                        Post no. <%= post.id %>
-                    </span>
-                    <p class="fs-3 my-3"><%= post.text %></p>
-                    <div class="text-end">
-                        <p class="mb-0 fs-5"><%= post.comments.count %> Comments | <%= post.likes.count %> Likes</p>
-                    </div>
-                    <% if post.comments.count > 0 %>
-                        <div class="border w-75 mx-auto m-4 p-0 align-self-center"></div>
-                        <h3 class="text-center m-0">Recent Comments</h3>
-                        <div class="d-flex flex-column gap-3">
-                        <% post.recent_comments.each do |comment| %>
-                            <div class="d-flex flex-column">
-                                <h4 class="mb-0">
-                                    <img class="rounded-circle bg-white p-1 border m-0 comment-profile-picture" src="<%= comment.user.photo %>" alt="User Photo">
-                                    <%= link_to comment.user.name, user_path(comment.user), class: "text-decoration-none text-decoration-underline-hover" %></h4>
-                                <p class="fs-4 ms-5"><%= comment.text %></p>
+                        <span class="text-secondary">
+                            Post no. <%= post.id %>
+                        </span>
+                        <p class="fs-3 my-3"><%= post.text %></p>
+                        <div class="text-end">
+                            <p class="mb-0 fs-5"><%= post.comments.count %> Comments | <%= post.likes.count %> Likes</p>
+                        </div>
+                        <% if post.comments.count > 0 %>
+                            <div class="border w-75 mx-auto m-4 p-0 align-self-center"></div>
+                            <h3 class="text-center m-0">Recent Comments</h3>
+                            <div class="d-flex flex-column gap-3">
+                                <% post.recent_comments.each do |comment| %>
+                                    <div class="d-flex flex-column">
+                                        <h4 class="mb-0">
+                                            <img class="rounded-circle bg-white p-1 border m-0 comment-profile-picture" src="<%= comment.user.photo %>" alt="User Photo">
+                                            <%= link_to comment.user.name, user_path(comment.user), class: "text-decoration-none text-decoration-underline-hover" %>
+                                        </h4>
+                                        <p class="fs-4 ms-5"><%= comment.text %></p>
+                                    </div>
+                                <% end %>
                             </div>
-                        <% end %>
-                        </div>
-                        <div class="d-flex gap-3 align-self-center">
-                            <%= link_to "See all comments",  user_post_path(user_id: @user.id, id: post.id), class: "text-decoration-none fs-4 text-decoration-underline-hover text-primary ms-auto" %>
-                        </div>
-                    <% end %> 
-                </div>
+                            <div class="d-flex gap-3 align-self-center">
+                                <%= link_to "See all comments",  user_post_path(user_id: @user.id, id: post.id), class: "text-decoration-none fs-4 text-decoration-underline-hover text-primary ms-auto" %>
+                            </div>
+                        <% end %> 
+                    </div>
+                <% end %>
             <% end %>
         </div>
         <div class="d-flex gap-3 align-self-center">
@@ -54,4 +63,5 @@
             <%= link_to "Back to Home", root_path, class: "btn btn-primary fs-3 px-3 py-2 rounded-pill" %>
         </div>
     </div>
+</div>
 
