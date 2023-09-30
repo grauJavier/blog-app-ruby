@@ -1,0 +1,13 @@
+
+<%= form_with(model: [@user, @post, @comment], url: user_post_comments_path(@user, @post), method: :post, class: "w-75") do |form| %>
+  <div class="d-flex flex-column gap-3 align-self-center">
+  <h3 class="text-center">Add new comment in <%= @user.name %>'s post</h3>
+  <div class="d-flex gap-3 w-100 align-items-center">
+     <%= form.text_area :text, class: 'form-control border rounded-5 px-4 py-3 fs-3 w-100' %>
+  </div>
+
+  <div class="actions text-center align-self-end">
+    <%= form.submit 'Add Comment', class: "btn btn-primary fs-3 px-3 py-2 rounded-pill" %>
+  </div>
+  </div>
+<% end %>
