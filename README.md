@@ -107,6 +107,11 @@ Follow these steps to utilize the Blog App:
 - LinkedIn: [@javiergrau](https://www.linkedin.com/in/javiergrau/)
 - Twitter: [@jgrauchile](https://twitter.com/jgrauchile)
 
+👤 **Andrea Manuel**
+- GitHub: [@AndreaM2429](https://github.com/AndreaM2429)
+- LinkedIn: [Andrea Manuel](https://www.linkedin.com/in/andreamanuel24/)
+- Twitter: [@AndreaManuelOr1](https://twitter.com/AndreaManuelOr1)
+
 ## 🤝 Contribution <a name="contributing"></a>
 
 Contributions, issues, and feature requests are highly encouraged! 

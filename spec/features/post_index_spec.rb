@@ -19,13 +19,9 @@ RSpec.feature 'User Post Index Page', type: :feature do
     expect(page).to have_content(post1.text)
     expect(page).to have_content(post2.text)
 
-    if post1.comments.any?
-      expect(page).to have_content(post1.comments.first.text)
-    end
+    expect(page).to have_content(post1.comments.first.text) if post1.comments.any?
 
-    if post2.comments.any?
-      expect(page).to have_content(post2.comments.first.text)
-    end
+    expect(page).to have_content(post2.comments.first.text) if post2.comments.any?
 
     expect(page).to have_content("#{post1.comments.count} Comments | #{post1.likes.count} Likes")
     expect(page).to have_content("#{post2.comments.count} Comments | #{post2.likes.count} Likes")

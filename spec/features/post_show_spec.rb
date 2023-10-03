@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature 'Post Show Page', type: :feature do
   let!(:user) { User.create(name: 'Juan') }
   let!(:post) { user.posts.create(title: 'Sample Post', text: 'This is a sample post') }
-  let!(:comment1) { post.comments.create(user: user, text: 'This is the first comment') }
-  let!(:comment2) { post.comments.create(user: user, text: 'This is the second comment') }
+  let!(:comment1) { post.comments.create(user:, text: 'This is the first comment') }
+  let!(:comment2) { post.comments.create(user:, text: 'This is the second comment') }
 
   scenario 'Visiting the post show page' do
     visit user_post_path(user, post)
@@ -13,7 +13,7 @@ RSpec.feature 'Post Show Page', type: :feature do
 
     expect(page).to have_content(user.name)
 
-    expect(page).to have_content("This is the second comment")
+    expect(page).to have_content('This is the second comment')
 
     expect(page).to have_content('0 Likes')
 
