@@ -62,6 +62,9 @@
             <%= link_to "User details", user_path(@user), class: "btn btn-primary fs-3 px-3 py-2 rounded-pill" %>
             <%= link_to "Back to Home", root_path, class: "btn btn-primary fs-3 px-3 py-2 rounded-pill" %>
         </div>
+        <div class="pagination">
+        <%= paginate @posts, window: 2 %>
+        <div>
     </div>
 </div>
 

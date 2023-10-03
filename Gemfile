@@ -72,7 +72,10 @@ group :test do
 end
 
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'factory_bot_rails'
+gem 'faker'
 gem 'jquery-rails'
+gem 'kaminari'
 gem 'rails-controller-testing'
 gem 'rubocop'
 gem 'sassc-rails', '>= 2.1.0'
