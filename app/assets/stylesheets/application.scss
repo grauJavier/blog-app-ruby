@@ -33,3 +33,9 @@ a:hover {
 .fs-2 {
   font-weight: 500 !important;
 }
+
+.pagination {
+  display: flex;
+  gap: 1rem;
+  font-size: calc(1.275rem + .3vw);
+}

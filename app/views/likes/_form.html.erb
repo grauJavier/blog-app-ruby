@@ -1,5 +1,6 @@
 <%= form_with(model: [@user, @post, @like], url: user_post_likes_path(@user, @post), method: :post) do |form| %>
-  <div class="actions">
+  <div class="actions d-flex gap-3 align-items-center">
+  <p class="mb-0 fs-5"><%= @post.comments.count %> Comments | <%= @post.likes.count %> Likes</p>
     <%= form.submit 'Like', class: 'btn btn-primary fs-3 px-5 py-2 rounded-pill' %>
   </div>
 <% end %>
