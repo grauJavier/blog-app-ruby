@@ -7,11 +7,46 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 numbers = (1..70).to_a.shuffle
-User.create(name: 'Alice Johnson', photo: "https://i.pravatar.cc/150?img=#{numbers.pop}", bio: 'Passionate about photography and travel.')
-User.create(name: 'Ethan Smith', photo: "https://i.pravatar.cc/150?img=#{numbers.pop}", bio: 'Software developer by day, aspiring musician by night.')
-User.create(name: 'Olivia Davis', photo: "https://i.pravatar.cc/150?img=#{numbers.pop}", bio: 'Bookworm, tea lover, and art enthusiast.')
-User.create(name: 'Liam Wilson', photo: "https://i.pravatar.cc/150?img=#{numbers.pop}", bio: 'Fitness enthusiast and certified personal trainer.')
-User.create(name: 'Sophia Lee', photo: "https://i.pravatar.cc/150?img=#{numbers.pop}", bio: 'Lover of nature, hiking, and sustainable living.')
+
+User.create(
+  name: 'Alice Johnson',
+  photo: "https://i.pravatar.cc/150?img=#{numbers.pop}",
+  bio: 'Passionate about photography and travel.',
+  email: 'alice@example.com',
+  password: 'password'
+)
+
+User.create(
+  name: 'Ethan Smith',
+  photo: "https://i.pravatar.cc/150?img=#{numbers.pop}",
+  bio: 'Software developer by day, aspiring musician by night.',
+  email: 'ethan@example.com',
+  password: 'password'
+)
+
+User.create(
+  name: 'Olivia Davis',
+  photo: "https://i.pravatar.cc/150?img=#{numbers.pop}",
+  bio: 'Bookworm, tea lover, and art enthusiast.',
+  email: 'olivia@example.com',
+  password: 'password'
+)
+
+User.create(
+  name: 'Liam Wilson',
+  photo: "https://i.pravatar.cc/150?img=#{numbers.pop}",
+  bio: 'Fitness enthusiast and certified personal trainer.',
+  email: 'liam@example.com',
+  password: 'password'
+)
+
+User.create(
+  name: 'Sophia Lee',
+  photo: "https://i.pravatar.cc/150?img=#{numbers.pop}",
+  bio: 'Lover of nature, hiking, and sustainable living.',
+  email: 'sophia@example.com',
+  password: 'password'
+)
 
 User.all.each do |user|
     (rand(0..5)*2).times do |i|
@@ -28,7 +63,7 @@ User.all.each do |user|
       Comment.create(
         user: User.all.sample,
         post: post,
-        text: "This is comment #{i + 1} on #{post.title}#{post.author.name}."
+        text: "This is comment #{i + 1} on #{post.title} by #{post.author.name}."
       )
     end
     rand(0..User.all.count).times do |i|
