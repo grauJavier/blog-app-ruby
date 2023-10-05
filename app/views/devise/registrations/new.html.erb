@@ -1,46 +1,42 @@
-<h2>Sign up</h2>
+<div class="container d-flex flex-column m-auto mt-5">
+  <h2 class="text-center mb-5 d-flex align-self-center">Create New Account</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'd-flex flex-column m-auto w-25 gap-3' }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% photo_url = "https://a.wattpad.com/useravatar/Salsita_con_patas.256.688778.jpg" %>
+    <% photo_url = "https://a.wattpad.com/useravatar/Salsita_con_patas.256.688778.jpg" %>
 
-  <div class="field d-none">
-    <p><%= f.label :photo %></p>
-    <p><%= f.text_field :photo, value: photo_url %></p>
-  </div>
+    <div class="field d-none">
+      <%= f.label :photo %>
+      <%= f.text_field :photo, value: photo_url, class: 'form-control border rounded-5 px-4 fs-3 w-100 lh-1' %>
+    </div>
 
-   <div class="field">
-    <p><%= f.label :name %></p>
-    <p><%= f.text_field :name, autofocus: true %></p>
-  </div>
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, placeholder: 'Full Name', class: 'form-control border rounded-5 px-4 fs-3 w-100 lh-1' %>
+    </div>
 
-  <div class="field">
-    <p><%= f.label :bio %></p>
-    <p><%= f.text_area :bio, autofocus: true %></p>
-  </div>
+    <div class="field">
+      <%= f.text_area :bio, autofocus: true, placeholder: 'Bio', class: 'form-control border rounded-5 px-4 fs-3 w-100 sign-up_bio' %>
+    </div>
 
-  <div class="field">
-    <p><%= f.label :email %></p>
-    <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
-  </div>
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: 'form-control border rounded-5 px-4 fs-3 w-100 lh-1' %>
+    </div>
 
-  <div class="field">
-    <p><%= f.label :password %></p>
-    <% if @minimum_password_length %>
-      <p><em>(<%= @minimum_password_length %> characters minimum)</em></p>
-    <% end %>
-    <p><%= f.password_field :password, autocomplete: "new-password" %></p>
-  </div>
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: 'Password', class: 'form-control border rounded-5 px-4 fs-3 w-100 lh-1' %>
+      <% if @minimum_password_length %>
+        <em class="float-end">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <p><%= f.label :password_confirmation %></p>
-    <p><%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
-  </div>
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'Confirm Password', class: 'form-control border rounded-5 px-4 fs-3 w-100 lh-1' %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <div class="actions m-auto mb-4">
+      <%= f.submit "Sign up", class: 'btn btn-primary fs-3 px-5 py-2 rounded-pill' %>
+    </div>
+    <%= render "devise/shared/links" %>
+  <% end %>
+</div>

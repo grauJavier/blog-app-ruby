@@ -10,7 +10,10 @@
                     </h2>
                     <p class="user-posts text-end me-5 fs-5">Number of posts: <%= @user.posts_counter %></p>
                 </div>
-                <%= link_to "Back to Home", root_path, title:"To Home Page", class: "text-decoration-none fs-4 text-decoration-underline-hover text-primary align-self-end" %>
+                <div class="d-flex gap-3 align-self-end">
+                    <%= link_to "See all posts", user_posts_path(@user), class: "btn btn-primary fs-3 px-3 py-2 rounded-pill" %>
+                    <%= link_to "Back to Home", root_path, title:"To Home Page", class: "text-decoration-none fs-4 text-decoration-underline-hover text-primary align-self-end my-auto" %>
+                </div>
             </div>
         </div>
 

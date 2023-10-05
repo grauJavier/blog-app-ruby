@@ -6,6 +6,7 @@ AllCops:
     - "node_modules/**/*"
     - "bin/*"
     - "db/**/*"
+    - "config/initializers/devise.rb"
 
   DisplayCopNames: true
 

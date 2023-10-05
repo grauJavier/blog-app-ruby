@@ -13,6 +13,8 @@
             <div class="align-self-end d-flex align-items-center gap-3">
                 <% if current_user == @user %>
                     <%= link_to "Create New Post", new_user_post_path(@user), class: "btn btn-primary fs-3 px-4 py-2 rounded-pill" %>
+                <% else %>
+                    <%= link_to "User details", user_path(@user), class: "btn btn-primary fs-3 px-3 py-2 rounded-pill" %>
                 <% end %>
                 <%= link_to "Back to Home", root_path, title:"To Home Page", class: "text-decoration-none fs-4 text-decoration-underline-hover text-primary" %>
             </div>
