@@ -3,9 +3,10 @@ AllCops:
   Exclude:
     - "Guardfile"
     - "Rakefile"
-    - "node_modules/**/*"
+    - "node_modules/*/"
     - "bin/*"
-    - "db/**/*"
+    - "db/*/"
+    - "config/initializers/devise.rb"
 
   DisplayCopNames: true
 
