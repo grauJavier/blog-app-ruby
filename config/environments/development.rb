@@ -9,7 +9,11 @@ Rails.application.configure do
   config.cache_classes = false
 
   # Do not eager load code on boot.
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.eager_load = false
+
+  # Letter opener mailer
+  config.action_mailer.delivery_method = :letter_opener
 
   # Show full error reports.
   config.consider_all_requests_local = true

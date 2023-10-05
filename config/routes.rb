@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  devise_for :users
+  devise_scope :user do
+    root 'devise/sessions#new'
+  end
 
   resources :users do
     resources :posts do

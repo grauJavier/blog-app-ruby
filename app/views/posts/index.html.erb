@@ -1,7 +1,7 @@
 <div class="d-flex flex-column align-items-center gap-4 my-5">
     <div class="container d-flex w-75 p-0">
         <a href="<%= user_path(@user) %>">
-            <img class="rounded-circle bg-white p-2 border me-4" src="<%= @user.photo %>" alt="User Photo">
+            <img class="rounded-circle bg-white p-2 border me-4 profile-pic" src="<%= @user.photo %>" alt="User Photo">
         </a>
         <div class="border rounded-5 w-100 bg-white p-4 d-flex flex-column justify-content-between">
             <div class="w-25 m-0">
@@ -11,8 +11,10 @@
                 <p class="user-posts text-end me-5 fs-5">Number of posts: <%= @user.posts_counter %></p>
             </div>
             <div class="align-self-end d-flex align-items-center gap-3">
-                <% if @current_user == @user %>
+                <% if current_user == @user %>
                     <%= link_to "Create New Post", new_user_post_path(@user), class: "btn btn-primary fs-3 px-4 py-2 rounded-pill" %>
+                <% else %>
+                    <%= link_to "User details", user_path(@user), class: "btn btn-primary fs-3 px-3 py-2 rounded-pill" %>
                 <% end %>
                 <%= link_to "Back to Home", root_path, title:"To Home Page", class: "text-decoration-none fs-4 text-decoration-underline-hover text-primary" %>
             </div>

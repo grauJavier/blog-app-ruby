@@ -72,10 +72,12 @@ group :test do
 end
 
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'devise', git: 'https://github.com/heartcombo/devise.git'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'letter_opener', group: :development
 gem 'rails-controller-testing'
 gem 'rubocop'
 gem 'sassc-rails', '>= 2.1.0'

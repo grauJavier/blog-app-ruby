@@ -10,6 +10,8 @@
       <%= form.label :text, class: "fs-2"%>
       <%= form.text_area :text, class: "form-control border rounded-5 px-4 py-3 fs-3 w-100", required: true %>
     </div>
-    <%= form.submit 'Add New Post', class: "btn btn-primary fs-3 px-3 py-2 rounded-pill w-25 align-self-end" %>
+    <div class="d-flex gap-3 justify-content-end">
+      <%= link_to "Back to all posts", user_posts_path(@user), class: "text-decoration-none fs-4 text-decoration-underline-hover text-primary align-self-end my-auto" %>
+      <%= form.submit 'Add New Post', class: "btn btn-primary fs-3 px-4 py-2 rounded-pill" %>
   </div>
 <% end %>

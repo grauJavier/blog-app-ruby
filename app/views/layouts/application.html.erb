@@ -12,6 +12,15 @@
   </head>
 
   <body class="bg-light">
+    <% if user_signed_in? %>
+    <div class="d-flex align-items-end">
+    <div class="mt-3 me-5 ms-auto d-flex align-items-center gap-3">
+        <img class="rounded-circle bg-white p-1 border m-0 comment-profile-picture" src="<%= current_user.photo %>" alt="User Photo">
+        <%= link_to current_user.name, user_path(current_user), class: "text-decoration-none fs-3" %>
+        <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary fs-3 px-4 py-2 rounded-pill w-100' %>
+      </div>
+      </div>
+    <% end %>
     <%= yield %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
