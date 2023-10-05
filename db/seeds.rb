@@ -13,7 +13,10 @@ User.create(
   photo: "https://i.pravatar.cc/150?img=#{numbers.pop}",
   bio: 'Passionate about photography and travel.',
   email: 'alice@example.com',
-  password: 'password'
+  password: 'password',
+  confirmation_token: '12345',
+  confirmed_at: Time.now,
+  confirmation_sent_at: Time.now
 )
 
 User.create(
@@ -21,7 +24,10 @@ User.create(
   photo: "https://i.pravatar.cc/150?img=#{numbers.pop}",
   bio: 'Software developer by day, aspiring musician by night.',
   email: 'ethan@example.com',
-  password: 'password'
+  password: 'password',
+  confirmation_token: '12345',
+  confirmed_at: Time.now,
+  confirmation_sent_at: Time.now
 )
 
 User.create(
@@ -29,7 +35,10 @@ User.create(
   photo: "https://i.pravatar.cc/150?img=#{numbers.pop}",
   bio: 'Bookworm, tea lover, and art enthusiast.',
   email: 'olivia@example.com',
-  password: 'password'
+  password: 'password',
+  confirmation_token: '12345',
+  confirmed_at: Time.now,
+  confirmation_sent_at: Time.now
 )
 
 User.create(
@@ -37,7 +46,10 @@ User.create(
   photo: "https://i.pravatar.cc/150?img=#{numbers.pop}",
   bio: 'Fitness enthusiast and certified personal trainer.',
   email: 'liam@example.com',
-  password: 'password'
+  password: 'password',
+  confirmation_token: '12345',
+  confirmed_at: Time.now,
+  confirmation_sent_at: Time.now
 )
 
 User.create(
@@ -45,7 +57,10 @@ User.create(
   photo: "https://i.pravatar.cc/150?img=#{numbers.pop}",
   bio: 'Lover of nature, hiking, and sustainable living.',
   email: 'sophia@example.com',
-  password: 'password'
+  password: 'password',
+  confirmation_token: '12345',
+  confirmed_at: Time.now,
+  confirmation_sent_at: Time.now
 )
 
 User.all.each do |user|

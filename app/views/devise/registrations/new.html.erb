@@ -3,6 +3,23 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <% photo_url = "https://a.wattpad.com/useravatar/Salsita_con_patas.256.688778.jpg" %>
+
+  <div class="field d-none">
+    <p><%= f.label :photo %></p>
+    <p><%= f.text_field :photo, value: photo_url %></p>
+  </div>
+
+   <div class="field">
+    <p><%= f.label :name %></p>
+    <p><%= f.text_field :name, autofocus: true %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :bio %></p>
+    <p><%= f.text_area :bio, autofocus: true %></p>
+  </div>
+
   <div class="field">
     <p><%= f.label :email %></p>
     <p><%= f.email_field :email, autofocus: true, autocomplete: "email" %></p>
